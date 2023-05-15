@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'ember-file-upload-test',
+    modulePrefix: 'ember-file-upload-bug-demo',
     environment,
     rootURL: '/',
     locationType: 'history',

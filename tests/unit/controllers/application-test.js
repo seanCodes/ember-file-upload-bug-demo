@@ -1,5 +1,5 @@
 import { module, test } from 'qunit'
-import { setupTest } from 'ember-file-upload-test/tests/helpers'
+import { setupTest } from 'ember-file-upload-bug-demo/tests/helpers'
 
 module('Unit | Controller | application', function (hooks) {
   setupTest(hooks)

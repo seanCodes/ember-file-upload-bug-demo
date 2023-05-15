@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "es2022",
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "ember-file-upload-test/*": ["./app/*"]
+      "ember-file-upload-bug-demo/*": ["./app/*"]
     }
   },
   "exclude": [
