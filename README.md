@@ -1,56 +1,32 @@
-# ember-file-upload-bug-demo
+# Bug Demo for ember-file-upload
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a demo repo for the issue [adopted-ember-addons/ember-file-upload#929](https://github.com/adopted-ember-addons/ember-file-upload/issues/929).
 
-## Prerequisites
+### Reproduction
 
-You will need the following things properly installed on your computer.
+1. `npm install`
+2. `ember serve`
+3. Navigate to http://localhost:4200/ or http://localhost:4200/tests/
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (with npm)
-- [Ember CLI](https://cli.emberjs.com/release/)
-- [Google Chrome](https://google.com/chrome/)
+Error:
 
-## Installation
+```
+Uncaught Error: Could not find module `miragejs` imported from `ember-file-upload`
+```
 
-- `git clone <repository-url>` this repository
-- `cd ember-file-upload-bug-demo`
-- `npm install`
+See `controllers/application.js` for the code causing the issue:
 
-## Running / Development
+```js
+import Controller from '@ember/controller'
+import { action } from '@ember/object'
+import { UploadFile } from 'ember-file-upload'
 
-- `ember serve`
-- Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+export default class ApplicationController extends Controller {
+  @action
+  foo() {
+    const file = new File(['foo'], 'foo.txt', { type: 'text/plain' })
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-- `ember test`
-- `ember test --server`
-
-### Linting
-
-- `npm run lint`
-- `npm run lint:fix`
-
-### Building
-
-- `ember build` (development)
-- `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://cli.emberjs.com/release/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+    console.log(new UploadFile(file))
+  }
+}
+```

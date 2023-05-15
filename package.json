@@ -2,7 +2,7 @@
   "name": "ember-file-upload-bug-demo",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for ember-file-upload-bug-demo goes here",
+  "description": "Small bug demo for adopted-ember-addons/ember-file-upload#929",
   "repository": "",
   "license": "MIT",
   "author": "",
